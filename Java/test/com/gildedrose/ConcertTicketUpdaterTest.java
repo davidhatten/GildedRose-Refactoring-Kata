@@ -10,7 +10,9 @@ import static org.junit.Assert.*;
 public class ConcertTicketUpdaterTest {
     @Test
     public void updateQualityWith10Days() throws Exception {
-        Item ticket = new Item("name", 10, 10);
+        //This is weird. When this utility is being used, sellIn has already been decremented
+        //So really, this is the 10th day
+        Item ticket = new Item("name", 9, 10);
         new ConcertTicketUpdater().updateQuality(ticket);
 
         assertEquals(12, ticket.quality);
@@ -18,7 +20,8 @@ public class ConcertTicketUpdaterTest {
 
     @Test
     public void updateQualityWith5Days() throws Exception {
-        Item ticket = new Item("name", 5, 10);
+        //Likewise, this is the fourth day
+        Item ticket = new Item("name", 4, 10);
         new ConcertTicketUpdater().updateQuality(ticket);
 
         assertEquals(13, ticket.quality);

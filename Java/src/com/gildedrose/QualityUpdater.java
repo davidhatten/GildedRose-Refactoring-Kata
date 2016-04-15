@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import static com.gildedrose.GildedRose.SPECIAL_ITEMS;
+
 /**
  * Created by davidhatten-laptop on 4/15/16.
  */
@@ -15,14 +17,9 @@ public class QualityUpdater {
         ticketUpdater = concertTicketUpdater;
     }
 
-
-    public void updateQualityBeforeSellInDecay(Item item) {
-        if (!item.name.equals("Aged Brie") && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (item.quality > 0) {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                    item.quality -= 1;
-                }
-            }
+    public void updateQuality(Item item) {
+        if (shouldDecrementQuality(item)) {
+            item.quality -= 1;
         } else {
             if (item.quality < 50) {
                 if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -32,5 +29,13 @@ public class QualityUpdater {
                 }
             }
         }
+    }
+
+    private boolean shouldDecrementQuality(Item item) {
+        if (!SPECIAL_ITEMS.contains(item.name) && item.quality > 0) {
+            return true;
+        }
+
+        return false;
     }
 }
