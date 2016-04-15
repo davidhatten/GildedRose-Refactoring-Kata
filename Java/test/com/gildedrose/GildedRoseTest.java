@@ -54,11 +54,10 @@ public class GildedRoseTest {
     }
 
     @Test
-    @Ignore("Not sure if this is exepected behavior, brie going up by 2 after expire")
     public void agedBrieBehaviorAfterExpire() throws Exception {
         GildedRose app = instantiateAppWithItem("Aged Brie", 0, 10);
         app.updateQuality();
-        assertEquals(11, getFirstItemQuality(app));
+        assertEquals(12, getFirstItemQuality(app));
     }
 
     @Test
@@ -97,7 +96,6 @@ public class GildedRoseTest {
 
         assertEquals(80, getFirstItemQuality(app));
         assertEquals(10, getFirstItemSellIn(app));
-
     }
 
     private int getFirstItemSellIn(GildedRose app) {
