@@ -15,7 +15,8 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-        qualityUpdater.updateQuality(items[i]);
+
+            qualityUpdater.updateQualityBeforeSellInDecay(items[i]);
 
             if (!getItemName(i).equals("Sulfuras, Hand of Ragnaros")) {
                 decrementItemSellIn(i);
