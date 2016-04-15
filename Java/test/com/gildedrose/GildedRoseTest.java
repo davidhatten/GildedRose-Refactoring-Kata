@@ -2,11 +2,13 @@ package com.gildedrose;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class GildedRoseTest {
 
     private final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private final String SULFRAS = "Sulfuras, Hand of Ragnaros";
 
     @Test
     public void foo() {
@@ -52,6 +54,14 @@ public class GildedRoseTest {
     }
 
     @Test
+    @Ignore("Not sure if this is exepected behavior, brie going up by 2 after expire")
+    public void agedBrieBehaviorAfterExpire() throws Exception {
+        GildedRose app = instantiateAppWithItem("Aged Brie", 0, 10);
+        app.updateQuality();
+        assertEquals(11, getFirstItemQuality(app));
+    }
+
+    @Test
     public void itemQualityCantBeGreaterThan50() throws Exception {
         GildedRose app = instantiateAppWithItem("Aged Brie", 10, 50);
         app.updateQuality();
@@ -61,7 +71,33 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesQualityIsRelativeToSellInDate() {
-        instantiateAppWithItem(BACKSTAGE_PASSES, 11, 10);
+        GildedRose app = instantiateAppWithItem(BACKSTAGE_PASSES, 11, 10);
+        app.updateQuality();
+
+        assertEquals(11, getFirstItemQuality(app));
+        app.updateQuality();
+        //Value increases by 2 when there are 10 days or less left
+        assertEquals(13, getFirstItemQuality(app));
+
+        app = instantiateAppWithItem(BACKSTAGE_PASSES, 5, 10);
+        app.updateQuality();
+        //Value increase by 3 whene there are 5 days or less left
+        assertEquals(13, getFirstItemQuality(app));
+
+        app = instantiateAppWithItem(BACKSTAGE_PASSES, 0, 10);
+        app.updateQuality();
+        //Value is 0 after the concert
+        assertEquals(0, getFirstItemQuality(app));
+    }
+
+    @Test
+    public void sulfrasNeverDecreasesInValueOrSellinDate() throws Exception {
+        GildedRose app = instantiateAppWithItem(SULFRAS, 10, 80);
+        app.updateQuality();
+
+        assertEquals(80, getFirstItemQuality(app));
+        assertEquals(10, getFirstItemSellIn(app));
+
     }
 
     private int getFirstItemSellIn(GildedRose app) {
