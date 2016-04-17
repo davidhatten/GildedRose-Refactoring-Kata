@@ -6,6 +6,7 @@ import java.util.List;
 class GildedRose {
     Item[] items;
     private QualityUpdater qualityUpdater;
+    private ItemClassifier classifier;
 
     public static List<String> SPECIAL_ITEMS = new ArrayList<String>() {{
         add("Sulfuras, Hand of Ragnaros");
@@ -14,16 +15,21 @@ class GildedRose {
     }};
 
     public GildedRose(Item[] items) {
-        this(items, new QualityUpdater());
+        this(items, new QualityUpdater(), new ItemClassifier());
     }
 
-    public GildedRose(Item[] items, QualityUpdater itemQualityUpdater) {
+    //testing constructor. Don't really have to use yet...
+    public GildedRose(Item[] items, QualityUpdater itemQualityUpdater, ItemClassifier itemClassifier) {
         this.items = items;
         qualityUpdater = itemQualityUpdater;
+        classifier = itemClassifier;
     }
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+
+
+
             if (!getItemName(i).equals("Sulfuras, Hand of Ragnaros")) {
                 decrementItemSellIn(i);
             }
