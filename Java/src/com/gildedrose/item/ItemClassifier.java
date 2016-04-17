@@ -1,8 +1,6 @@
 package com.gildedrose.item;
 
-import com.gildedrose.item.wrapper.StandardItem;
-import com.gildedrose.item.wrapper.ItemWrapper;
-import com.gildedrose.item.wrapper.SpecialItem;
+import com.gildedrose.item.wrapper.*;
 
 /**
  * Created by davidhatten-laptop on 4/17/16.
@@ -13,11 +11,11 @@ public class ItemClassifier {
 
         switch (item.name) {
             case "Sulfuras, Hand of Ragnaros":
-                result = new SpecialItem(item);
+                result = new Sulfuras(item);
                 break;
 
             case "Aged Brie":
-                result = new SpecialItem(item);
+                result = new AgedBrie(item);
                 break;
 
             case "Backstage passes to a TAFKAL80ETC concert":

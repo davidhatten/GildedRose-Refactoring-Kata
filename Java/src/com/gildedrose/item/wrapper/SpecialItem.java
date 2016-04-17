@@ -43,19 +43,12 @@ public class SpecialItem extends ItemWrapper {
 
     @Override
     protected void ifExpired() {
-        if (!item.name.equals("Aged Brie")) {
-            if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        item.quality--;
-                    }
-                }
-            } else {
-                item.quality = 0;
+        if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (item.quality > 0) {
+                item.quality--;
             }
-        } else
-        if (item.quality < 50 ) {
-            item.quality++;
+        } else {
+            item.quality = 0;
         }
     }
 }

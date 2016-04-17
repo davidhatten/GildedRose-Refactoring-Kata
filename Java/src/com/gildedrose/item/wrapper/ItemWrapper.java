@@ -22,12 +22,7 @@ public abstract class ItemWrapper {
     protected abstract void ifExpired();
 
     public void ageOneDay() {
-        //Not sure if this one should go here or in the implementations
-        //I'm waffling on it, totally open to suggestion
-        //It's covered by the GildedRoseTest
-        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            updateSellIn();
-        }
+        updateSellIn();
 
         if (item.quality > 0) {
             updateQuality();
@@ -35,6 +30,12 @@ public abstract class ItemWrapper {
 
         if (item.sellIn < 0) {
             ifExpired();
+        }
+    }
+
+    protected void incrementQuality() {
+        if (item.quality < 50) {
+            item.quality++;
         }
     }
 }
