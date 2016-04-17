@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.app;
+
+import com.gildedrose.item.Item;
+import com.gildedrose.item.ItemClassifier;
+import com.gildedrose.item.wrapper.ItemWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +32,6 @@ class GildedRose {
             ItemWrapper item = classifier.classifyItem(items[i]);
 
             item.ageOneDay();
-
         }
     }
 }

@@ -1,8 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.app;
 
 import static org.junit.Assert.*;
 
-import org.junit.Ignore;
+import com.gildedrose.item.Item;
 import org.junit.Test;
 
 public class GildedRoseTest {

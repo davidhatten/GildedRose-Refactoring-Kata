@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.item.Item;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

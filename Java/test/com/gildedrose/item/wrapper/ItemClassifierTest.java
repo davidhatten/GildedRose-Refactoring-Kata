@@ -1,5 +1,9 @@
-package com.gildedrose;
+package com.gildedrose.item.wrapper;
 
+import com.gildedrose.item.Item;
+import com.gildedrose.item.ItemClassifier;
+import com.gildedrose.item.ItemType;
+import com.gildedrose.item.wrapper.ItemWrapper;
 import org.junit.Before;
 import org.junit.Test;
 

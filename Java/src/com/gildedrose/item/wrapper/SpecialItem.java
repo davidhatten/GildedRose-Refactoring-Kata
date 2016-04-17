@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.item.wrapper;
+
+import com.gildedrose.ConcertTicketUpdater;
+import com.gildedrose.item.ItemType;
+import com.gildedrose.item.Item;
 
 /**
  * Created by davidhatten-laptop on 4/17/16.

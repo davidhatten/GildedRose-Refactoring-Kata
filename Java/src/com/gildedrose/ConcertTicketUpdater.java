@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.item.Item;
+
 /**
  * Created by davidhatten-laptop on 4/15/16.
  */

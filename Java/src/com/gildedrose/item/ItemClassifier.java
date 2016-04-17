@@ -1,4 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.item;
+
+import com.gildedrose.item.wrapper.StandardItem;
+import com.gildedrose.item.wrapper.ItemWrapper;
+import com.gildedrose.item.wrapper.SpecialItem;
 
 /**
  * Created by davidhatten-laptop on 4/17/16.
