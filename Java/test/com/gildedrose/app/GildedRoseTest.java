@@ -97,6 +97,28 @@ public class GildedRoseTest {
         assertEquals(10, getFirstItemSellIn(app));
     }
 
+    @Test
+    public void conjuredItemsDegradeTwiceAsFast() throws Exception {
+        //naming convention for conjured might need to be similar to Backstage Passes
+        GildedRose app = instantiateAppWithItem("Conjured", 4, 20);
+        app.updateQuality();
+
+        assertEquals(18, getFirstItemQuality(app));
+        assertEquals(3, getFirstItemSellIn(app));
+
+        app.updateQuality();
+        assertEquals(16, getFirstItemQuality(app));
+        assertEquals(2, getFirstItemSellIn(app));
+
+        app.updateQuality();//1, 14
+        app.updateQuality();//0, 12
+        app.updateQuality();//-1, 8
+
+        assertEquals(8, getFirstItemQuality(app));
+        assertEquals(-1, getFirstItemSellIn(app));
+
+    }
+
     private int getFirstItemSellIn(GildedRose app) {
         return app.items[0].sellIn;
     }
