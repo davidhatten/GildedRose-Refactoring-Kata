@@ -34,16 +34,16 @@ public class ItemClassifierTest {
         Item brie = new Item("Aged Brie", 10, 10);
         ItemWrapper specialItem = classifier.classifyItem(brie);
 
-        assertEquals(ItemType.SPECIAL, specialItem.getType());
+        assertEquals(ItemType.AGED_BRIE, specialItem.getType());
 
         Item passes = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10);
         ItemWrapper wrappedPasses = classifier.classifyItem(passes);
 
-        assertEquals(ItemType.SPECIAL, wrappedPasses.getType());
+        assertEquals(ItemType.BACKSTAGE_PASSES, wrappedPasses.getType());
 
         Item sulfras = new Item("Sulfuras, Hand of Ragnaros", 10, 10);
         ItemWrapper wrappedSulfras = classifier.classifyItem(sulfras);
 
-        assertEquals(ItemType.SPECIAL, wrappedSulfras.getType());
+        assertEquals(ItemType.SULFURAS, wrappedSulfras.getType());
     }
 }

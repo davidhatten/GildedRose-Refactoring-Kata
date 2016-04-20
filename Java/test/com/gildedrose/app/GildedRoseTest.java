@@ -10,13 +10,12 @@ public class GildedRoseTest {
     private final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private final String SULFRAS = "Sulfuras, Hand of Ragnaros";
 
-    @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app =  new GildedRose(items);
-        app.updateQuality();
-        assertEquals("foo", app.items[0].name);
-    }
+    /*
+    These are now redundant, but i'm keeping them around
+    Ideally, the app could be restructured to not take items in it constructor
+    But as I understand it, I'm not allowed to do that.
+    Also I'm too lazy to get proper dependency management in here
+     */
 
     @Test
     public void itShouldDecreaseItemByQualityPerDay() throws Exception {

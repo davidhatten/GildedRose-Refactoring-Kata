@@ -18,6 +18,7 @@ public class AgedBrieTest {
         agedBrie.ageOneDay();
 
         assertEquals(11, item.quality);
+        assertEquals(9, item.sellIn);
     }
 
     @Test

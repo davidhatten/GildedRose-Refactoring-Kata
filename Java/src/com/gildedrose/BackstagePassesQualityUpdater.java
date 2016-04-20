@@ -5,7 +5,7 @@ import com.gildedrose.item.Item;
 /**
  * Created by davidhatten-laptop on 4/15/16.
  */
-public class ConcertTicketUpdater {
+public class BackstagePassesQualityUpdater {
     public void updateQuality(Item item) {
         if (item.sellIn < 5) {
             item.quality += 3;

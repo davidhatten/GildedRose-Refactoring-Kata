@@ -10,7 +10,7 @@ public class ItemClassifier {
         ItemWrapper result;
 
         switch (item.name) {
-            case "Sulfuras, Hand of Ragnaros":
+                case "Sulfuras, Hand of Ragnaros":
                 result = new Sulfuras(item);
                 break;
 
@@ -19,7 +19,7 @@ public class ItemClassifier {
                 break;
 
             case "Backstage passes to a TAFKAL80ETC concert":
-                result = new SpecialItem(item);
+                result = new BackstagePasses(item);
                 break;
 
             default:

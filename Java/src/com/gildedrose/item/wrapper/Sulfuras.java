@@ -7,6 +7,9 @@ import com.gildedrose.item.ItemType;
  * Created by davidhatten-laptop on 4/17/16.
  */
 public class Sulfuras extends ItemWrapper {
+
+    public static final String ITEM_NAME = "Sulfuras, Hand of Ragnaros";
+
     public Sulfuras(Item item) {
         super(item);
     }
